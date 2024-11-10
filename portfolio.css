@@ -1,0 +1,318 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    scroll-behavior: none;
+    scrollbar-width: none;
+}
+.background{
+    height: 320vh;
+    width:100vw;
+    background-image: url(bg2.jpg);
+    background-size: contain; 
+}
+body{
+    height:100%;
+    width:100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.firstpage{
+    display: flex;
+    position: absolute;
+    top:0vh;
+    left:4vw;
+    height:90vh;
+    width:90vw;
+    border:2px solid white;
+    border-radius: 40px;
+    box-shadow: 4px 4px 10px 8px rgb(236, 236, 238);
+    background-color: black;
+    margin-top: 2%;
+}
+nav{
+    height:10vh;
+    width:100%;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap:3vw;
+    list-style: none;
+    font-size: 1.5vw;
+    margin-top: 2vh;;
+}
+nav ul a{
+    text-decoration: none;
+    color:white;
+    border: none;
+}
+nav ul a:hover ,:focus{
+    color:red;
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgb(0, 21, 255),0 0 10px blue,0 0 20px blue;
+
+}
+nav ul #port{
+    color:white;
+    font-size: 2.5vw;
+    font-family: poppins;
+    position: relative;
+    left:1vw;
+    font-weight: 700;
+}
+nav ul #folio{
+    color:blue;
+    font-size: 2.5vw;
+    font-family: poppins;
+    position: relative;
+    left:-1.7vw;
+    font-weight: 700;
+}
+nav ul .list2{
+    color:white;
+    position: relative;
+    left:30vw;
+    top:1vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+nav ul img{
+    height:6vh;
+    width:3.5vw;
+    position: relative;
+    left:37vw;
+    top:-0.5vh;
+    border-radius: 50%;
+    border:2px solid white;
+}
+.welcome{
+    display: flex;
+    justify-content: flex-start;
+    position:absolute;
+    left:5vw;
+    top:30vh;
+    color:white;
+}
+.welcome #hii{
+    font-size: 2vw;
+    position: relative;
+    left:0vw;
+}
+.welcome #my{
+    font-size: 2vw;
+    position: relative;
+    top:8vh;
+    left:-5.5vw;
+    color:red;
+}
+.welcome #name{
+    font-size: 2vw;
+    position: relative;
+    top:8vh;
+    left:-4.8vw;
+    color:white;
+}
+
+.welcome #t{
+    font-size: 5vw;
+    position: relative;
+    top:15vh;
+    left:-15.5vw;
+    color:Red;
+    animation:4s fade-in linear;
+    animation-delay: 0s;
+}
+@keyframes  fade-in {
+    from{
+        opacity: 0;
+        scale:1;
+    }to{
+        opacity: 1;
+        scale:1;
+    }
+    
+}
+.welcome #apan{
+    font-size: 4vw;
+    position: relative;
+    top:17vh;
+    left:-15.8vw;
+    color:white;
+    animation:5s fade-in linear;
+    animation-delay: 0.1s;
+}
+.welcome #b{
+    font-size: 5vw;
+    position: relative;
+    top:15vh;
+    left:-14.5vw;
+    color:Red;
+    animation:4s fade-in linear;
+    animation-delay: 0s;
+}
+.welcome #oruah{
+    font-size: 4vw;
+    position: relative;
+    top:17vh;
+    left:-14.5vw;
+    animation:5s fade-in linear;
+    animation-delay: 0.1s;
+}
+.contact{
+    position:relative;
+    top:28vh;
+    left:-43.7vw;
+}
+.contact img{
+    height:4vh;
+    width:2vw;
+    margin-left: 1vw;
+}
+.contact .insta{
+    border-radius: 7px;
+    height:4.5vh;
+    width:2.2vw;
+}
+.contact .linked{
+    height:4.5vh;
+    width:2.2vw;
+}
+.contact .git{
+    height: 6vh;
+    width:3vw;
+    position: relative;
+    top:1vh;
+    left:-0.5vw;
+} 
+.contact .whatsapp{
+    height:5vh;
+    width:2.5vw;
+    position: relative;
+    top:0.3vh;
+    left:-1vw;
+    border-radius: 50px;
+}
+.secondpage{
+    display: flex;
+    position:relative;
+    top:45vh;
+    left:0vw;
+    height:90vh;
+    width:90vw;
+    border:2px solid white;
+    border-radius: 40px;
+    box-shadow: 4px 4px 10px 8px rgb(236, 236, 238);
+    background-color:#191a1e;
+    margin-top: 2%;
+}
+.secondpage .about{
+    height:7vh;
+    width:19vw;
+    color:rgb(255,0,0);
+    font-family: poppins;
+    position: relative;
+    top:10vh;
+    left:10vw;
+    border:2px solid white;
+    border-radius:30px;
+    background-color:#d5dbe5;
+    font-size: 3vw;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.secondpage .text{
+    position:relative;
+    top:15vh;
+    left:5vw;
+    font-size: 2vw;
+    padding:1vh;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.secondpage .text2{
+    font-size: 3.5vw;
+    color:rgb(255,0,0);
+}
+.secondpage .text3{
+    font-size: 3vw;
+}
+.secondpage .more{
+    height: 5vh;
+    width:13vw;
+    font-size: 1.5vw;
+    border-radius: 30px;
+    text-align: center;
+    background-color: rgb(255,0,0);
+    margin-top: 3vh;
+    text-decoration: none;
+}
+.secondpage .more:hover ,:focus{
+    text-shadow: 0 0 5px red,0 0 10px red,0 0 20px red;
+    box-shadow: 0 0 5px red,0 0 10px red,0 0 20px red;
+}
+.thirdpage{
+    display: flex;
+    position:relative;
+    top:60vh;
+    left:0vw;
+    height:90vh;
+    width:90vw;
+    border:2px solid white;
+    border-radius: 40px;
+    box-shadow: 4px 4px 10px 8px rgb(236, 236, 238);
+    background-color:#090a0b;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.thirdpage .edu{
+    height:7vh;
+    width:19vw;
+    color:rgb(51, 16, 249);
+    font-family: poppins;
+    position: relative;
+    top:10vh;
+    left:10vw;
+    border:2px solid white;
+    border-radius:30px;
+    background-color:#d5dbe5;
+    font-size: 3vw;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.thirdpage .course{
+    position:relative;
+    top:15vh;
+    left:5vw;
+    font-size: 2vw;
+    padding:1vh;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.thirdpage .course2{
+    font-size: 3vw;
+    color:rgb(51,16,249);
+}
+.thirdpage .course4{
+    font-size: 3.5vw;
+    color:rgb(51,16,249);
+}
+.thirdpage .more2{
+    height: 5vh;
+    width:13vw;
+    font-size: 1.5vw;
+    border-radius: 30px;
+    text-align: center;
+    background-color: rgb(51,16,249);
+    margin-top: 3vh;
+    text-decoration: none;
+}
+.thirdpage .more2:hover,:focus{
+    text-shadow: 0 0 5px blue,0 0 10px blue,0 0 20px blue;
+    box-shadow: 0 0 5px blue,0 0 10px blue,0 0 20px blue;
+}

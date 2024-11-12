@@ -357,13 +357,13 @@ nav ul img{
         height:4vh;
         position: relative;
         left:-4vw;
-        top:14vh;
+        top:24vh;
     }
     .welcome #my{
         font-size: 8vw;
         height:4vh;
         position: relative;
-        top:20vh;
+        top:30vh;
         left:-20.5vw;
         color:red;
     }
@@ -372,7 +372,7 @@ nav ul img{
         height:4vh;
         width: 50vw;
         position: relative;
-        top:27vh;
+        top:37vh;
         left:-31.8vw;
         color:white;
     }
@@ -381,14 +381,14 @@ nav ul img{
         height:4vh;
         width: 50vw;
         position: relative;
-        top:27vh;
+        top:37vh;
         left:-29vw;
         color:white;
     }
     .welcome #t{
         font-size: 14vw;
         position: relative;
-        top:35vh;
+        top:45vh;
         left:-63.5vw;
         height:4vh;
         color:Red;
@@ -408,7 +408,7 @@ nav ul img{
     .welcome #apan{
         font-size: 14vw;
         position: relative;
-        top:35vh;
+        top:45vh;
         left:-63.8vw;
         color:white;
         height:4vh;
@@ -418,7 +418,7 @@ nav ul img{
     .welcome #b{
         font-size: 14vw;
         position: relative;
-        top:45vh;
+        top:55vh;
         left:-107.5vw;
         color:Red;
         animation:4s fade-in linear;
@@ -427,7 +427,7 @@ nav ul img{
     .welcome #oruah{
         font-size: 14vw;
         position: relative;
-        top:45vh;
+        top:55vh;
         left:-107.5vw;
         animation:5s fade-in linear;
         animation-delay: 0.1s;
@@ -436,38 +436,38 @@ nav ul img{
         display: flex;
         gap:1vw;
         position: relative;
-        top:60vh;
+        top:70vh;
         left:-100vw;
         width:100vw;
     }
     .contact .insta{
         position: absolute;
         top:0.5vh;
-        left:-70vw;
+        left:-73vw;
         border-radius: 7px;
         height:4.5vh;
-        width:8vw;
+        width:9vw;
     }
     .contact .linked{
         position: absolute;
         top:0.5vh;
         left:-60vw;
         height:4.5vh;
-        width:8vw;
+        width:9vw;
     }
     .contact .git{
         height: 6vh;
-        width:10vw;
+        width:13vw;
         position: absolute;
         top:0vh;
-        left:-50vw;
+        left:-49vw;
     } 
     .contact .whatsapp{
         height:5vh;
-        width:10vw;
+        width:11vw;
         position: absolute;
         top:0.3vh;
-        left:-40vw;
+        left:-35vw;
         border-radius: 50px;
     }
     .secondpage{

@@ -116,12 +116,18 @@ nav ul img{
     left:-4.8vw;
     color:white;
 }
-
+.welcome #is{
+    font-size: 2vw;
+    position: relative;
+    top:8vh;
+    left:-4.2vw;
+    color:white;
+}
 .welcome #t{
     font-size: 5vw;
     position: relative;
     top:15vh;
-    left:-15.5vw;
+    left:-15.2vw;
     color:Red;
     animation:4s fade-in linear;
     animation-delay: 0s;
@@ -225,7 +231,7 @@ nav ul img{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.secondpage .text{
+.secondpage .text0{
     position:relative;
     top:15vh;
     left:5vw;
@@ -315,4 +321,151 @@ nav ul img{
 .thirdpage .more2:hover,:focus{
     text-shadow: 0 0 5px blue,0 0 10px blue,0 0 20px blue;
     box-shadow: 0 0 5px blue,0 0 10px blue,0 0 20px blue;
+}
+@media only screen and (max-width:480px){
+    nav ul a{
+        display: none;
+    }
+    nav ul{
+        display: flex;
+        gap:3vw;
+    }
+    nav ul img{
+        position: relative;
+        left:10vw;
+        width:12vw;
+    }
+    nav ul #port,nav ul #folio{
+        font-size: 8vw;
+        position: relative;
+        left:1vw;
+    }
+    .welcome{
+        display: flex;
+        justify-content: flex-start;
+        position:relative;
+        height:70vh;
+        width:80vw;
+        top:-25vh;
+        left:10vw;
+    }
+    .welcome #hii{
+        font-size: 6vw;
+        height:4vh;
+        position: relative;
+        left:-4vw;
+        top:14vh;
+    }
+    .welcome #my{
+        font-size: 8vw;
+        height:4vh;
+        position: relative;
+        top:20vh;
+        left:-20.5vw;
+        color:red;
+    }
+    .welcome #name{
+        font-size: 8vw;
+        height:4vh;
+        width: 50vw;
+        position: relative;
+        top:27vh;
+        left:-31.8vw;
+        color:white;
+    }
+    .welcome #is{
+        font-size: 8vw;
+        height:4vh;
+        width: 50vw;
+        position: relative;
+        top:27vh;
+        left:-25vw;
+        color:white;
+    }
+    .welcome #t{
+        font-size: 14vw;
+        position: relative;
+        top:33vh;
+        left:-59.5vw;
+        height:4vh;
+        color:Red;
+        animation:4s fade-in linear;
+        animation-delay: 0s;
+    }
+    @keyframes  fade-in {
+        from{
+            opacity: 0;
+            scale:1;
+        }to{
+            opacity: 1;
+            scale:1;
+        }
+        
+    }
+    .welcome #apan{
+        font-size: 14vw;
+        position: relative;
+        top:33vh;
+        left:-59.8vw;
+        color:white;
+        height:4vh;
+        animation:5s fade-in linear;
+        animation-delay: 0.1s;
+    }
+    .welcome #b{
+        font-size: 14vw;
+        position: relative;
+        top:43vh;
+        left:-97.5vw;
+        color:Red;
+        animation:4s fade-in linear;
+        animation-delay: 0s;
+    }
+    .welcome #oruah{
+        font-size: 14vw;
+        position: relative;
+        top:43vh;
+        left:-95.5vw;
+        animation:5s fade-in linear;
+        animation-delay: 0.1s;
+    }
+    .contact{
+        display: flex;
+        gap:1vw;
+        position: relative;
+        top:60vh;
+        left:-100vw;
+        width:100vw;
+    }
+    .contact .insta{
+        position: absolute;
+        top:0.5vh;
+        left:-50vw;
+        border-radius: 7px;
+        height:4.5vh;
+        width:8vw;
+    }
+    .contact .linked{
+        position: absolute;
+        top:0.5vh;
+        left:-40vw;
+        height:4.5vh;
+        width:8vw;
+    }
+    .contact .git{
+        height: 6vh;
+        width:10vw;
+        position: absolute;
+        top:0vh;
+        left:-30vw;
+    } 
+    .contact .whatsapp{
+        height:5vh;
+        width:10vw;
+        position: absolute;
+        top:0.3vh;
+        left:-20vw;
+        border-radius: 50px;
+    }
+
 }

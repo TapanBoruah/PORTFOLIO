@@ -83,3 +83,30 @@ body{
     text-shadow: 0 0 5px blue,0 0 10px blue,0 0 20px blue;
     box-shadow: 0 0 5px blue,0 0 10px blue,0 0 20px blue;
 }
+@media only screen and (max-width:480px){
+    .edu1{
+        width:60vw;
+        position: relative;
+        top:3vh;
+        left:15vw;
+        font-size:10vw;
+    }
+    .edu2{
+        position: relative;
+        top:4vh;
+        font-size: 7vw;
+    }
+    .edu3{
+        position: relative;
+        top:4vh;
+        font-size: 5vw;
+    }
+    .back2{
+        position: absolute;
+        top:80vh;
+        height:3vh;
+        width:20vw;
+        font-size: 5vw;
+
+    }
+}

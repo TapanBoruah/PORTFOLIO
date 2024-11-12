@@ -323,6 +323,9 @@ nav ul img{
     box-shadow: 0 0 5px blue,0 0 10px blue,0 0 20px blue;
 }
 @media only screen and (max-width:480px){
+    .background{
+        height: 300vh;
+    }
     nav ul a{
         display: none;
     }
@@ -379,14 +382,14 @@ nav ul img{
         width: 50vw;
         position: relative;
         top:27vh;
-        left:-25vw;
+        left:-29vw;
         color:white;
     }
     .welcome #t{
         font-size: 14vw;
         position: relative;
-        top:33vh;
-        left:-59.5vw;
+        top:35vh;
+        left:-63.5vw;
         height:4vh;
         color:Red;
         animation:4s fade-in linear;
@@ -405,8 +408,8 @@ nav ul img{
     .welcome #apan{
         font-size: 14vw;
         position: relative;
-        top:33vh;
-        left:-59.8vw;
+        top:35vh;
+        left:-63.8vw;
         color:white;
         height:4vh;
         animation:5s fade-in linear;
@@ -415,8 +418,8 @@ nav ul img{
     .welcome #b{
         font-size: 14vw;
         position: relative;
-        top:43vh;
-        left:-97.5vw;
+        top:45vh;
+        left:-107.5vw;
         color:Red;
         animation:4s fade-in linear;
         animation-delay: 0s;
@@ -424,8 +427,8 @@ nav ul img{
     .welcome #oruah{
         font-size: 14vw;
         position: relative;
-        top:43vh;
-        left:-95.5vw;
+        top:45vh;
+        left:-107.5vw;
         animation:5s fade-in linear;
         animation-delay: 0.1s;
     }
@@ -440,7 +443,7 @@ nav ul img{
     .contact .insta{
         position: absolute;
         top:0.5vh;
-        left:-50vw;
+        left:-70vw;
         border-radius: 7px;
         height:4.5vh;
         width:8vw;
@@ -448,7 +451,7 @@ nav ul img{
     .contact .linked{
         position: absolute;
         top:0.5vh;
-        left:-40vw;
+        left:-60vw;
         height:4.5vh;
         width:8vw;
     }
@@ -457,15 +460,75 @@ nav ul img{
         width:10vw;
         position: absolute;
         top:0vh;
-        left:-30vw;
+        left:-50vw;
     } 
     .contact .whatsapp{
         height:5vh;
         width:10vw;
         position: absolute;
         top:0.3vh;
-        left:-20vw;
+        left:-40vw;
         border-radius: 50px;
+    }
+    .secondpage{
+        display: flex;
+        position: relative;
+        top:7vh;
+    }
+    .secondpage .about{
+        height:6vh;
+        width:60vw;
+        position: relative;
+        top:3vh;
+        left:10vw;
+        font-size:12vw;
+    }
+    .secondpage .more{
+        position: relative;
+        top:30vh;
+        left:55vw;
+        height:4vh;
+        width:30vw;
+        font-size: 4vw;
+    }
+    .secondpage .text2{
+        font-size: 8vw;
+    }
+    .secondpage .text3{
+        position: relative;
+        top:18vh;
+        font-size:6.5vw;
+    }
+    .secondpage .text4{
+        position: relative;
+        top:20vh;
+        font-size: 8vw;
+        width:70vw;
+        color: red;
+    }
+    .thirdpage{
+        position: relative;
+        top:18vh;
+        margin-bottom: 0;
+    }
+    .thirdpage .edu{
+        height:6vh;
+        width:60vw;
+        position: relative;
+        top:3vh;
+        left:10vw;
+        font-size:12vw;
+    }
+    .thirdpage .course{
+        font-size: 8vw;
+    }
+    .thirdpage .more2{
+        position: relative;
+        top:25vh;
+        left:55vw;
+        height:4vh;
+        width:30vw;
+        font-size: 4vw;
     }
 
 }

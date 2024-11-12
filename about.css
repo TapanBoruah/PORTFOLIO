@@ -105,3 +105,80 @@ body{
     text-shadow: 0 0 5px red,0 0 10px red,0 0 20px red;
     box-shadow: 0 0 5px red,0 0 10px red,0 0 20px red;
 }
+@media only screen and (max-width:480px){
+    .inner{
+        position: relative;
+        top:1vh;
+    }
+    .about1{
+        height:5vh;
+        width:40vw;
+        position: relative;
+        top:3vh;
+        left:20vw;
+        font-size:10vw;
+    }
+    .about0{
+        font-size: 5vw;
+    }
+    .about2{
+        position: relative;
+        top:4vh;
+    }
+    .about3{
+        position: relative;
+        top:4vh;
+    }
+    .about4{
+        position: relative;
+        top:3vh;
+        font-size: 6vw;
+    }
+    .about5{
+        position: relative;
+        top:3vh;
+        font-size: 6vw;
+    }
+    .skill{
+        position: relative;
+        top:3vh;
+        left:4vw;
+        font-size: 5vw;
+    }
+    .project{
+        position: relative;
+        top:3vh;
+        left:4vw;
+        font-size: 5vw;
+    }
+    .about6{
+        position: relative;
+        top:3vh;
+    }
+    .about7{
+        position: relative;
+        top:1.5vh;
+        left:3vw;
+        font-size: 4.5vw;
+    }
+    .about8{
+        position: relative;
+        top:1vh;
+    }
+    .about9{
+        position: relative;
+        top:0.5vh;
+    }
+    .about10{
+        position: relative;
+        top:0vh;
+    }
+    .back{
+        position: relative;
+        top:-2vh;
+        left:4vw;
+        width:20vw;
+        height:3vh;
+        font-size: 5vw;
+    }
+}

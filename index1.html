@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind CSS Interactive Playground</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 p-8">
+
+  <h1 class="text-4xl font-bold mb-6 text-center">🎯 Tailwind CSS Interactive Playground</h1>
+  <p class="text-center mb-10 text-gray-600">Click, hover, and test classes live</p>
+
+  <!-- Colors -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🎨 Colors</h2>
+    <div class="flex flex-wrap gap-4">
+      <div class="p-4 bg-blue-500 text-white rounded">bg-blue-500</div>
+      <div class="p-4 bg-red-500 text-white rounded">bg-red-500</div>
+      <div class="p-4 bg-green-500 text-white rounded">bg-green-500</div>
+      <div class="p-4 bg-yellow-500 text-white rounded">bg-yellow-500</div>
+    </div>
+  </section>
+
+  <!-- Hover Effects -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🖱 Hover Effects</h2>
+    <div class="flex gap-4">
+      <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Hover Me</button>
+      <button class="bg-green-500 text-white px-4 py-2 rounded hover:scale-110 transform transition">Grow</button>
+      <button class="bg-red-500 text-white px-4 py-2 rounded hover:rotate-3 transform transition">Rotate</button>
+    </div>
+  </section>
+
+  <!-- Transitions & Animations -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🎞 Transitions & Animations</h2>
+    <div class="flex gap-4">
+      <div class="bg-purple-500 text-white p-4 rounded transition duration-500 hover:bg-purple-700">Fade Color</div>
+      <div class="bg-pink-500 text-white p-4 rounded animate-bounce">Bounce</div>
+      <div class="bg-yellow-500 text-white p-4 rounded animate-pulse">Pulse</div>
+    </div>
+  </section>
+
+  <!-- Gradients -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">🌈 Gradients</h2>
+    <div class="flex flex-wrap gap-4">
+      <div class="w-40 h-20 rounded bg-gradient-to-r from-blue-500 to-green-500"></div>
+      <div class="w-40 h-20 rounded bg-gradient-to-r from-pink-500 to-yellow-500"></div>
+      <div class="w-40 h-20 rounded bg-gradient-to-b from-purple-500 to-red-500"></div>
+    </div>
+  </section>
+
+  <!-- Grid Layout -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">📐 Grid Layout</h2>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="bg-blue-200 p-4">1</div>
+      <div class="bg-green-200 p-4">2</div>
+      <div class="bg-yellow-200 p-4">3</div>
+      <div class="bg-red-200 p-4">4</div>
+      <div class="bg-purple-200 p-4">5</div>
+      <div class="bg-pink-200 p-4">6</div>
+    </div>
+  </section>
+
+  <!-- Responsive Example -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">📱 Responsive Example</h2>
+    <div class="bg-gray-200 p-4 sm:bg-green-200 md:bg-blue-200 lg:bg-yellow-200">
+      Resize the window to see background color change
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4">💳 Card Example</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-2xl transition">
+        <h3 class="font-bold text-lg mb-2">Card Title</h3>
+        <p class="text-gray-600">This is a card description.</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-2xl transition">
+        <h3 class="font-bold text-lg mb-2">Card Title</h3>
+        <p class="text-gray-600">This is a card description.</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-2xl transition">
+        <h3 class="font-bold text-lg mb-2">Card Title</h3>
+        <p class="text-gray-600">This is a card description.</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

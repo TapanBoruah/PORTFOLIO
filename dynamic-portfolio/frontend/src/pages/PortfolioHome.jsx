@@ -280,16 +280,11 @@ const PortfolioHome = () => {
               <div className="absolute inset-0 border border-white/15 rounded-3xl transform rotate-6 scale-[1.03] transition-all duration-300 group-hover:rotate-12 group-hover:border-blue-500/30" />
               <div className="absolute inset-0 border border-white/10 rounded-3xl transform -rotate-3 scale-[0.98] transition-all duration-300 group-hover:-rotate-6 group-hover:border-purple-500/30" />
               
-              {/* Image Frame */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/20 glass-card bg-slate-900/60 p-4">
                 <img 
                   src={getAssetUrl(profile?.avatar) || "/imagesportfolio/me.png"} 
                   alt="Tapan Boruah Profile" 
                   className="w-full h-full object-cover rounded-2xl group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
-                  onError={(e) => {
-                    // Fallback to high quality stock tech avatar if profile image has loading error
-                    e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-                  }}
                 />
               </div>
             </div>
@@ -313,9 +308,6 @@ const PortfolioHome = () => {
                   src={getAssetUrl(profile?.aboutImage) || "/imagesportfolio/me1.jpg"} 
                   alt="Tapan Boruah Engineering" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80';
-                  }}
                 />
               </div>
             </div>

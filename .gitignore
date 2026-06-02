@@ -1,0 +1,26 @@
+# Node dependencies in dynamic-portfolio
+dynamic-portfolio/node_modules/
+dynamic-portfolio/backend/node_modules/
+dynamic-portfolio/frontend/node_modules/
+
+# Production Build outputs in dynamic-portfolio
+dynamic-portfolio/frontend/dist/
+dynamic-portfolio/backend/dist/
+dynamic-portfolio/dist/
+
+# Local Environment configurations
+dynamic-portfolio/backend/.env
+dynamic-portfolio/frontend/.env
+dynamic-portfolio/.env
+.env
+.env.local
+
+# Logs and runtime caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# Operating System Files
+.DS_Store
+Thumbs.db

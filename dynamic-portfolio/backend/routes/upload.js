@@ -2,24 +2,29 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const auth = require('../middleware/auth');
 
-// Make sure the uploads directory exists
-const uploadDir = path.join(__dirname, '../uploads');
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
+// Configure Cloudinary SDK using Environment Settings
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
-// Multer Storage Configuration
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadDir);
-  },
-  filename: (req, file, cb) => {
-    // Generate unique filename: timestamp + original extension
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
+// Configure Multer-Storage-Cloudinary
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: async (req, file) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    const isPdf = ext === '.pdf';
+    return {
+      folder: 'portfolio',
+      allowed_formats: ['jpeg', 'jpg', 'png', 'gif', 'webp', 'pdf'],
+      resource_type: isPdf ? 'raw' : 'auto', // Raw is required for PDF documents in Cloudinary
+      public_id: Date.now() + '-' + Math.round(Math.random() * 1E9)
+    };
   }
 });
 
@@ -36,7 +41,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Initialize Multer
+// Initialize Multer with Cloudinary Storage
 const upload = multer({
   storage: storage,
   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
@@ -44,18 +49,17 @@ const upload = multer({
 });
 
 // @route   POST api/upload
-// @desc    Upload an image file locally
+// @desc    Upload an image or document to Cloudinary
 // @access  Private (Admin only)
 router.post('/', auth, upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ msg: 'No file was uploaded' });
   }
 
-  // Return the relative URL served by Express static
-  const fileUrl = `/api/uploads/${req.file.filename}`;
-  res.json({ url: fileUrl });
+  // Return the secure cloud URL provided by Cloudinary
+  res.json({ url: req.file.path });
 }, (error, req, res, next) => {
-  // Handle Multer errors or custom filter errors
+  // Handle Multer errors or Cloudinary configuration errors
   res.status(400).json({ msg: error.message });
 });
 

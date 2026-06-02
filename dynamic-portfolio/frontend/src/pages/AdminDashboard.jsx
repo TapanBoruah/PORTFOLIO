@@ -27,7 +27,31 @@ import {
 const getAssetUrl = (url) => {
   if (!url) return '';
   if (url.startsWith('http') || url.startsWith('data:')) return url;
-  return `${import.meta.env.VITE_API_URL || ''}${url}`;
+  
+  // If the asset is a local frontend public asset, do not prepend the backend VITE_API_URL
+  if (url.startsWith('/imagesportfolio/')) {
+    return url;
+  }
+  
+  const baseUrl = import.meta.env.VITE_API_URL || '';
+  let cleanBase = baseUrl.trim();
+  let cleanUrl = url.trim();
+  
+  // Remove duplicate /api prefix if VITE_API_URL already ends with it
+  if (cleanBase.endsWith('/api') && cleanUrl.startsWith('/api/')) {
+    cleanUrl = cleanUrl.substring(4);
+  } else if (cleanBase.endsWith('/api/') && cleanUrl.startsWith('/api/')) {
+    cleanUrl = cleanUrl.substring(5);
+  }
+  
+  // Combine safely ensuring correct slash separation
+  if (cleanBase.endsWith('/') && cleanUrl.startsWith('/')) {
+    return cleanBase + cleanUrl.substring(1);
+  } else if (!cleanBase.endsWith('/') && !cleanUrl.startsWith('/')) {
+    return cleanBase + '/' + cleanUrl;
+  }
+  
+  return cleanBase + cleanUrl;
 };
 
 const AdminDashboard = () => {

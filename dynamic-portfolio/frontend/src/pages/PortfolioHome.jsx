@@ -22,6 +22,12 @@ import {
   Loader2
 } from 'lucide-react';
 
+const getAssetUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('http') || url.startsWith('data:')) return url;
+  return `${import.meta.env.VITE_API_URL || ''}${url}`;
+};
+
 const PortfolioHome = () => {
   // Navigation State
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -228,7 +234,7 @@ const PortfolioHome = () => {
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
               <a 
-                href={profile?.cvUrl || '#projects'} 
+                href={getAssetUrl(profile?.cvUrl) || '#projects'} 
                 target={profile?.cvUrl ? "_blank" : undefined}
                 rel={profile?.cvUrl ? "noopener noreferrer" : undefined}
                 className="bg-blue-600 hover:bg-blue-500 hover:shadow-glow-blue text-white px-8 py-3.5 rounded-xl font-semibold tracking-wide shadow-lg shadow-blue-500/20 active:scale-95 transition-all duration-200 text-sm"
@@ -277,7 +283,7 @@ const PortfolioHome = () => {
               {/* Image Frame */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/20 glass-card bg-slate-900/60 p-4">
                 <img 
-                  src={profile?.avatar || "/imagesportfolio/me.png"} 
+                  src={getAssetUrl(profile?.avatar) || "/imagesportfolio/me.png"} 
                   alt="Tapan Boruah Profile" 
                   className="w-full h-full object-cover rounded-2xl group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                   onError={(e) => {
@@ -304,7 +310,7 @@ const PortfolioHome = () => {
               
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/50">
                 <img 
-                  src={profile?.aboutImage || "/imagesportfolio/me1.jpg"} 
+                  src={getAssetUrl(profile?.aboutImage) || "/imagesportfolio/me1.jpg"} 
                   alt="Tapan Boruah Engineering" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
@@ -412,7 +418,7 @@ const PortfolioHome = () => {
                   
                   <div className="w-16 h-16 rounded-xl bg-slate-900/50 p-2 flex items-center justify-center border border-white/5 group-hover:border-blue-500/30 transition-colors duration-300">
                     <img 
-                      src={skill.icon} 
+                      src={getAssetUrl(skill.icon)} 
                       alt={skill.name} 
                       className="w-full h-full object-contain filter group-hover:scale-110 transition-transform duration-300" 
                       onError={(e) => {
@@ -581,7 +587,7 @@ const PortfolioHome = () => {
                   {/* Card Header Image Container */}
                   <div className="relative aspect-video overflow-hidden bg-slate-950 border-b border-white/5">
                     <img 
-                      src={project.image} 
+                      src={getAssetUrl(project.image)} 
                       alt={project.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       onError={(e) => {

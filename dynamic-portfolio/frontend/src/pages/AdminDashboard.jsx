@@ -24,6 +24,12 @@ import {
   X
 } from 'lucide-react';
 
+const getAssetUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('http') || url.startsWith('data:')) return url;
+  return `${import.meta.env.VITE_API_URL || ''}${url}`;
+};
+
 const AdminDashboard = () => {
   const { isAuthenticated, login, logout, loading: authLoading } = useAuth();
 
@@ -1049,7 +1055,7 @@ const AdminDashboard = () => {
                       {skills.map(skill => (
                         <tr key={skill._id} className="border-b border-white/5 hover:bg-white/5">
                           <td className="p-4">
-                            <img src={skill.icon} alt="" className="w-7 h-7 object-contain bg-slate-900 rounded p-0.5 border border-white/5" />
+                            <img src={getAssetUrl(skill.icon)} alt="" className="w-7 h-7 object-contain bg-slate-900 rounded p-0.5 border border-white/5" />
                           </td>
                           <td className="p-4 font-bold text-white">{skill.name}</td>
                           <td className="p-4 capitalize text-slate-400">{skill.category}</td>
@@ -1216,7 +1222,7 @@ const AdminDashboard = () => {
                       {projects.map(proj => (
                         <tr key={proj._id} className="border-b border-white/5 hover:bg-white/5">
                           <td className="p-4">
-                            <img src={proj.image} alt="" className="w-12 aspect-video object-cover bg-slate-950 rounded border border-white/5" />
+                            <img src={getAssetUrl(proj.image)} alt="" className="w-12 aspect-video object-cover bg-slate-950 rounded border border-white/5" />
                           </td>
                           <td className="p-4 font-bold text-white">{proj.title}</td>
                           <td className="p-4">

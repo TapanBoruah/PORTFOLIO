@@ -52,7 +52,13 @@ router.post('/login', async (req, res) => {
 // @access  Private
 router.get('/verify', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    let user = await User.findById(req.user.id).select('-password');
+    if (!user && req.user.username) {
+      user = await User.findOne({ username: req.user.username }).select('-password');
+    }
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
     res.json(user);
   } catch (err) {
     console.error(err.message);
@@ -60,4 +66,54 @@ router.get('/verify', auth, async (req, res) => {
   }
 });
 
+// @route   PUT api/auth/update
+// @desc    Update admin credentials
+// @access  Private
+router.put('/update', auth, async (req, res) => {
+  const { newUsername, currentPassword, newPassword } = req.body;
+
+  if (!currentPassword) {
+    return res.status(400).json({ msg: 'Please enter your current password to authorize changes' });
+  }
+
+  try {
+    let user = await User.findById(req.user.id);
+    if (!user && req.user.username) {
+      user = await User.findOne({ username: req.user.username });
+    }
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+
+    // Verify current password
+    const isMatch = await user.comparePassword(currentPassword);
+    if (!isMatch) {
+      return res.status(400).json({ msg: 'Incorrect current password' });
+    }
+
+    // Apply updates
+    if (newUsername) {
+      const existingUser = await User.findOne({ username: newUsername });
+      if (existingUser && existingUser._id.toString() !== user._id.toString()) {
+        return res.status(400).json({ msg: 'Username is already taken' });
+      }
+      user.username = newUsername.trim();
+    }
+
+    if (newPassword) {
+      if (newPassword.length < 6) {
+        return res.status(400).json({ msg: 'New password must be at least 6 characters long' });
+      }
+      user.password = newPassword;
+    }
+
+    await user.save();
+    res.json({ msg: 'Credentials updated successfully' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
 module.exports = router;
+

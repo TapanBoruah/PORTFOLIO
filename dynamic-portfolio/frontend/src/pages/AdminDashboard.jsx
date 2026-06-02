@@ -46,6 +46,10 @@ const AdminDashboard = () => {
   // Data Loading trigger
   const [loadingData, setLoadingData] = useState(false);
 
+  // Credential update state
+  const [credentialUpdate, setCredentialUpdate] = useState({ currentPassword: '', newUsername: '', newPassword: '', confirmPassword: '' });
+  const [credentialStatus, setCredentialStatus] = useState({ loading: false, success: '', error: '' });
+
   // Dynamic Item Form States (for creating new elements)
   const [newSkill, setNewSkill] = useState({ name: '', category: 'frontend', icon: '', proficiency: 80 });
   const [newProject, setNewProject] = useState({ title: '', description: '', image: '', githubUrl: '', liveUrl: '', tags: '' });
@@ -342,6 +346,40 @@ const AdminDashboard = () => {
     }
   };
 
+  // CRUD API: Update Admin security credentials
+  const handleUpdateCredentials = async (e) => {
+    e.preventDefault();
+    if (!credentialUpdate.currentPassword) {
+      setCredentialStatus({ loading: false, success: '', error: 'Please enter your current password to authorize changes.' });
+      return;
+    }
+
+    if (credentialUpdate.newPassword && credentialUpdate.newPassword !== credentialUpdate.confirmPassword) {
+      setCredentialStatus({ loading: false, success: '', error: 'New passwords do not match.' });
+      return;
+    }
+
+    setCredentialStatus({ loading: true, success: '', error: '' });
+    try {
+      await axios.put('/api/auth/update', {
+        newUsername: credentialUpdate.newUsername || undefined,
+        currentPassword: credentialUpdate.currentPassword,
+        newPassword: credentialUpdate.newPassword || undefined
+      });
+
+      setCredentialStatus({ loading: false, success: 'Credentials updated successfully!', error: '' });
+      setCredentialUpdate({ currentPassword: '', newUsername: '', newPassword: '', confirmPassword: '' });
+      alert('Credentials updated successfully! Please keep track of your new login details.');
+    } catch (err) {
+      setCredentialStatus({
+        loading: false,
+        success: '',
+        error: err.response?.data?.msg || 'Failed to update admin credentials.'
+      });
+    }
+  };
+
+
   // CRUD API: Delete Achievement
   const handleDeleteAchievement = async (id) => {
     if (!window.confirm('Are you sure you want to remove this achievement?')) return;
@@ -573,7 +611,8 @@ const AdminDashboard = () => {
 
         {/* TAB: PROFILE & CONTACT SETTINGS */}
         {activeTab === 'profile' && (
-          <form onSubmit={handleUpdateProfile} className="glass-card p-8 rounded-3xl border border-white/5 space-y-6 animate-fade-in">
+          <div className="space-y-8 animate-fade-in">
+            <form onSubmit={handleUpdateProfile} className="glass-card p-8 rounded-3xl border border-white/5 space-y-6">
             <h3 className="text-lg font-bold text-white flex items-center gap-2 border-b border-white/5 pb-4">
               <User className="text-blue-500" size={20} />
               Portfolio Owner & Contact Info Settings
@@ -803,7 +842,89 @@ const AdminDashboard = () => {
               Save All Profile Settings
             </button>
           </form>
-        )}
+
+          {/* CREDENTIAL UPDATE FORM */}
+          <form onSubmit={handleUpdateCredentials} className="glass-card p-8 rounded-3xl border border-white/5 space-y-6">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2 border-b border-white/5 pb-4">
+              <Lock className="text-blue-500" size={20} />
+              Change Admin Security Credentials
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-1">
+                <label className="block text-[10px] font-bold text-slate-400 uppercase">New Username (Optional)</label>
+                <input 
+                  type="text" 
+                  placeholder="Leave blank to keep current"
+                  value={credentialUpdate.newUsername}
+                  onChange={(e) => setCredentialUpdate({ ...credentialUpdate, newUsername: e.target.value })}
+                  className="w-full input-field py-2 text-xs"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="block text-[10px] font-bold text-slate-400 uppercase">New Password (Optional)</label>
+                <input 
+                  type="password" 
+                  placeholder="Min 6 characters. Leave blank to keep current"
+                  value={credentialUpdate.newPassword}
+                  onChange={(e) => setCredentialUpdate({ ...credentialUpdate, newPassword: e.target.value })}
+                  className="w-full input-field py-2 text-xs"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="block text-[10px] font-bold text-slate-400 uppercase">Confirm New Password</label>
+                <input 
+                  type="password" 
+                  placeholder="Re-type new password"
+                  value={credentialUpdate.confirmPassword}
+                  onChange={(e) => setCredentialUpdate({ ...credentialUpdate, confirmPassword: e.target.value })}
+                  className="w-full input-field py-2 text-xs"
+                />
+              </div>
+            </div>
+
+            <div className="border-t border-white/5 pt-6 space-y-4">
+              <div className="space-y-1 max-w-sm">
+                <label className="block text-[10px] font-bold text-red-400 uppercase flex items-center gap-1">
+                  <span>Current Password (Required to save changes)</span>
+                  <span className="text-red-500">*</span>
+                </label>
+                <input 
+                  type="password" 
+                  required
+                  placeholder="Enter current password"
+                  value={credentialUpdate.currentPassword}
+                  onChange={(e) => setCredentialUpdate({ ...credentialUpdate, currentPassword: e.target.value })}
+                  className="w-full input-field py-2 text-xs border-red-500/20 focus:border-red-500/50"
+                />
+              </div>
+
+              {credentialStatus.error && (
+                <div className="p-3.5 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl text-xs font-semibold">
+                  ⚠ {credentialStatus.error}
+                </div>
+              )}
+
+              {credentialStatus.success && (
+                <div className="p-3.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-xl text-xs font-semibold">
+                  ✓ {credentialStatus.success}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                disabled={credentialStatus.loading}
+                className="w-full md:w-auto bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm shadow-md shadow-blue-500/10 active:scale-95"
+              >
+                {credentialStatus.loading ? <Loader2 className="animate-spin" size={16} /> : <CheckCircle size={16} />}
+                Update Account Credentials
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
 
         {/* TAB 2: SKILLS EDITOR */}
         {activeTab === 'skills' && (

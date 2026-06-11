@@ -249,11 +249,11 @@ const PortfolioHome = () => {
             
             <h2 className="text-xl sm:text-2xl font-semibold text-slate-300 font-sans tracking-wide flex items-center justify-center lg:justify-start gap-3">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              {profile?.title || 'Mechanical Engineer & MERN Developer'}
+              {profile?.title}
             </h2>
             
             <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-              Bridging the gap between the physical and digital world. I apply engineering precision and design logic to develop responsive full-stack applications.
+              Mechanical Engineering student focused on robotics, simulation, and product development. Working on robot modeling, ROS 2, autonomous systems, and engineering solutions from concept to deployment.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
@@ -306,7 +306,7 @@ const PortfolioHome = () => {
               
               <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/20 glass-card bg-slate-900/60 p-4">
                 <img 
-                  src={getAssetUrl(profile?.avatar) || "/imagesportfolio/me.png"} 
+                  src={getAssetUrl(profile?.avatar)} 
                   alt="Tapan Boruah Profile" 
                   className="w-full h-full object-cover rounded-2xl group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
                 />
@@ -329,7 +329,7 @@ const PortfolioHome = () => {
               
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/50">
                 <img 
-                  src={getAssetUrl(profile?.aboutImage) || "/imagesportfolio/me1.jpg"} 
+                  src={getAssetUrl(profile?.aboutImage) } 
                   alt="Tapan Boruah Engineering" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
@@ -350,25 +350,25 @@ const PortfolioHome = () => {
             </div>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
-              {profile?.aboutText1 || "I’m Tapan Boruah, a 2nd-year Mechanical Engineering student with a Minor in Computer Science & Engineering at the National Institute of Technology, Arunachal Pradesh. Hailing from Lakhimpur, Assam, I hold a deep interest in both physical engineering processes and dynamic backend architectures."}
+              {profile?.aboutText1}
             </p>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
-              {profile?.aboutText2 || "As a full-stack MERN Stack Developer, I build performant web applications using MongoDB, Express, React, and Node.js. My minor in Computer Science supplies me with strong foundations in programming and clean systems design."}
+              {profile?.aboutText2}
             </p>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
-              {profile?.aboutText3 || "In addition to math, gears, and code, I am a trained musician (Tabla player, Percussionist, and Drummer) with a completed music degree (Prabhakar Degree, equivalent to B.Music). Operating across both logic-bound equations and musical rhythms grants me a unique, creative, and structured approach to problem-solving."}
+              {profile?.aboutText3 }
             </p>
 
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="p-4 rounded-xl border border-white/5 bg-slate-900/40 hover:border-blue-500/20 transition-all duration-200">
-                <div className="text-3xl font-extrabold text-white">{profile?.cgpa || '8.73'}</div>
+                <div className="text-3xl font-extrabold text-white">{profile?.cgpa}</div>
                 <div className="text-xs text-slate-400 mt-1">Current College CGPA</div>
               </div>
               <div className="p-4 rounded-xl border border-white/5 bg-slate-900/40 hover:border-blue-500/20 transition-all duration-200">
-                <div className="text-3xl font-extrabold text-white">{projects.length || profile?.projectsCount || '4'}</div>
+                <div className="text-3xl font-extrabold text-white">{projects.length || profile?.projectsCount}</div>
                 <div className="text-xs text-slate-400 mt-1">Key Full-Stack Projects</div>
               </div>
             </div>

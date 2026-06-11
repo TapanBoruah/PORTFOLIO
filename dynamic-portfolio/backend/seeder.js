@@ -32,8 +32,8 @@ const education = [
   {
     institution: 'National Institute of Technology Arunachal Pradesh',
     degree: 'B.Tech in Mechanical Engineering (Minor in CSE)',
-    duration: '2024 – Present | 2nd Year',
-    grade: 'CGPA: 8.73',
+    duration: '',
+    grade: '',
     order: 1
   },
   {
@@ -79,22 +79,7 @@ const achievements = [
 // Initial Projects data from index.html
 // Using absolute references for relative image names for visual continuity
 const projects = [
-  {
-    title: 'TIC TAC TOE',
-    description: 'Tic tac toe game using react js',
-    image: 'https://raw.githubusercontent.com/TapanBoruah/TIC-TAC-TOE/main/tictactoe-screenshot.png', // Fallback or placeholder, updated below
-    githubUrl: 'https://github.com/TapanBoruah/TIC-TAC-TOE',
-    liveUrl: 'https://tapanboruah.github.io/TIC-TAC-TOE/#',
-    tags: ['React', 'CSS', 'Game']
-  },
-  {
-    title: 'BMI CALCULATOR',
-    description: 'A bmi calc for checking an individual bmi using react js',
-    image: 'https://raw.githubusercontent.com/TapanBoruah/BMI-CALCULATOR/main/bmi-screenshot.png',
-    githubUrl: 'https://github.com/TapanBoruah/BMI-CALCULATOR',
-    liveUrl: 'https://tapanboruah.github.io/BMI-CALCULATOR/',
-    tags: ['React', 'CSS', 'Tool']
-  },
+ 
   {
     title: 'Karyalipi',
     description: 'A full-stack notes-taking website using MERN.',

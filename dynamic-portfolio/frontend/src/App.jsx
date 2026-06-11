@@ -9,13 +9,10 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          {/* Main Portfolio Home Page */}
           <Route path="/" element={<PortfolioHome />} />
-          
-          {/* Secure Admin Control Dashboard (Handles its own built-in login) */}
+                
           <Route path="/admin" element={<AdminDashboard />} />
-
-          {/* Fallback Catch-All Redirect to Home */}
+    
           <Route path="*" element={<PortfolioHome />} />
         </Routes>
       </Router>
